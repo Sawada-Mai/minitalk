@@ -1,0 +1,10 @@
+pft/
+pft_2019/
+printfTester/
+a.out
+*.o
+*.a
+*.gch
+.DS_Storepft_2019/
+.DS_Store
+pft_2019/
