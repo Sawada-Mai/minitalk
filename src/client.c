@@ -6,18 +6,18 @@
 /*   By: msawada <msawada@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 20:51:56 by msawada           #+#    #+#             */
-/*   Updated: 2024/11/17 20:51:59 by msawada          ###   ########.fr       */
+/*   Updated: 2024/11/17 22:40:15 by msawada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-int		server_status = 0;
+int		g_server_status = 0;
 
 void	handle_signal_complete(int signum)
 {
 	(void)signum;
-	server_status = STATUS_COMPLETE;
+	g_server_status = STATUS_COMPLETE;
 }
 
 void	send_char(pid_t pid, char c)
@@ -38,9 +38,9 @@ void	send_char(pid_t pid, char c)
 			ft_putstr_fd("Error\n", 2);
 			exit(EXIT_FAILURE);
 		}
-		while (server_status == STATUS_WAITING)
+		while (g_server_status == STATUS_WAITING)
 			usleep(100);
-		server_status = STATUS_WAITING;
+		g_server_status = STATUS_WAITING;
 		i--;
 	}
 	return ;
@@ -57,6 +57,7 @@ void	send_str(pid_t pid, char *str)
 	return ;
 }
 
+// TODO ft_atoi
 int	main(int argc, char **argv)
 {
 	pid_t	pid;

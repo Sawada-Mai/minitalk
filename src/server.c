@@ -6,7 +6,7 @@
 /*   By: msawada <msawada@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 18:17:34 by msawada           #+#    #+#             */
-/*   Updated: 2024/11/17 20:42:39 by msawada          ###   ########.fr       */
+/*   Updated: 2024/11/17 22:30:39 by msawada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,6 @@ void	ft_handle_signal(int signum, siginfo_t *info, void *context)
 	count++;
 	if (count == 8)
 	{
-		if (c == '\n')
-			write(1, "koko", 5);
 		write(1, &c, 1);
 		c = 0;
 		count = 0;
@@ -45,7 +43,7 @@ int	main(void)
 {
 	struct sigaction	sa;
 
-	printf("Server PID: %d\n", getpid());
+	ft_printf("Server PID: %d\n", getpid());
 	sa.sa_sigaction = &ft_handle_signal;
 	sa.sa_flags = SA_SIGINFO;
 	sigaction(SIGUSR1, &sa, NULL);
