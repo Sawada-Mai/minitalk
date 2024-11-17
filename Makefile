@@ -6,47 +6,39 @@
 #    By: msawada <msawada@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/02 18:17:05 by msawada           #+#    #+#              #
-#    Updated: 2024/11/02 18:17:10 by msawada          ###   ########.fr        #
+#    Updated: 2024/11/17 20:35:09 by msawada          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# Compiler and compiling flags
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-# Project name for the binaries
 NAME_CLIENT = client
 NAME_SERVER = server
 
-# Directories
 SRC_DIR = src
 OBJ_DIR = obj
 LIBFT_DIR = lib/libft
 FT_PRINTF_DIR = lib/ft_printf
 INC_DIR = include
 
-# Source files and object files
-SRC_CLIENT = $(SRC_DIR)/client/client.c
-SRC_SERVER = $(SRC_DIR)/server/server.c
+SRC_CLIENT = $(SRC_DIR)/client.c
+SRC_SERVER = $(SRC_DIR)/server.c
 OBJ_CLIENT = $(SRC_CLIENT:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 OBJ_SERVER = $(SRC_SERVER:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
-# Libraries
 LIBFT = $(LIBFT_DIR)/libft.a
 FT_PRINTF = $(FT_PRINTF_DIR)/libftprintf.a
-LIBS = -L$(LIBFT_DIR) -lft -L$(FT_PRINTF_DIR) -lftprintf
-
-# Header files
+ 
 HEADERS = -I$(INC_DIR) -I$(LIBFT_DIR) -I$(FT_PRINTF_DIR)
 
-# Rules
 all: $(NAME_CLIENT) $(NAME_SERVER)
 
 $(NAME_CLIENT): $(LIBFT) $(FT_PRINTF) $(OBJ_CLIENT)
-	$(CC) $(CFLAGS) $(OBJ_CLIENT) $(HEADERS) $(LIBS) -o $(NAME_CLIENT)
+	$(CC) $(CFLAGS) $(OBJ_CLIENT) $(HEADERS) $(LIBFT) $(FT_PRINTF) -o $(NAME_CLIENT)
 
 $(NAME_SERVER): $(LIBFT) $(FT_PRINTF) $(OBJ_SERVER)
-	$(CC) $(CFLAGS) $(OBJ_SERVER) $(HEADERS) $(LIBS) -o $(NAME_SERVER)
+	$(CC) $(CFLAGS) $(OBJ_SERVER) $(HEADERS) $(LIBFT) $(FT_PRINTF) -o $(NAME_SERVER)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(INC_DIR)/minitalk.h
 	@mkdir -p $(@D)

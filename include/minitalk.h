@@ -6,7 +6,7 @@
 /*   By: msawada <msawada@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 17:59:12 by msawada           #+#    #+#             */
-/*   Updated: 2024/11/02 18:16:38 by msawada          ###   ########.fr       */
+/*   Updated: 2024/11/17 20:02:17 by msawada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+
+# define STATUS_WAITING 0
+# define STATUS_COMPLETE 1
 
 // Client
 void	ft_send_bit(int pid, int bit);
