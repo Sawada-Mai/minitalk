@@ -6,7 +6,7 @@
 /*   By: msawada <msawada@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 20:51:56 by msawada           #+#    #+#             */
-/*   Updated: 2024/11/17 22:40:15 by msawada          ###   ########.fr       */
+/*   Updated: 2024/11/21 18:08:22 by msawada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ void	send_str(pid_t pid, char *str)
 	return ;
 }
 
-// TODO ft_atoi
 int	main(int argc, char **argv)
 {
 	pid_t	pid;

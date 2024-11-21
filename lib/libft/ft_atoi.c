@@ -3,53 +3,46 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msawada <msawada@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*   By: msawada <msawada@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 12:30:50 by msawada           #+#    #+#             */
-/*   Updated: 2024/04/21 16:01:41 by msawada          ###   ########.fr       */
+/*   Updated: 2024/11/21 18:07:26 by msawada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	change_num(const char *nptr, int sign)
+int	change_num(const char *nptr)
 {
 	long	num;
 
 	num = 0;
-	while (*nptr >= '0' && *nptr <= '9')
+	while (*nptr)
 	{
-		if ((num >= LONG_MAX / 10 && *nptr >= '7' && sign == 1)
-			|| (num > LONG_MAX / 10 && sign == 1))
-			return ((int)LONG_MAX);
-		else if ((num >= LONG_MAX / 10 && *nptr >= '8' && sign == -1)
-			|| (num > LONG_MAX / 10 && sign == -1))
-			return ((int)LONG_MIN);
+		if (num > 32768)
+			return (0);
+		if (!(*nptr >= '0' && *nptr <= '9'))
+			return (0);
 		num *= 10;
 		num += *nptr - '0';
 		nptr++;
 	}
-	return ((int)(num * sign));
+	if (num > 32768)
+		return (0);
+	return (num);
 }
 
 int	ft_atoi(const char *nptr)
 {
-	int					sign;
-
-	sign = 1;
-	while (*nptr == '\t' || *nptr == '\n' || *nptr == '\v'
-		|| *nptr == '\f' || *nptr == '\r' || *nptr == ' ')
+	while (*nptr == '\t' || *nptr == '\n' || *nptr == '\v' || *nptr == '\f'
+		|| *nptr == '\r' || *nptr == ' ')
 	{
 		nptr++;
 	}
 	if (*nptr == '-' || *nptr == '+')
-	{
-		if (*nptr == '-')
-			sign *= -1;
-		nptr++;
-	}
+		return (0);
 	if (*nptr >= '0' && *nptr <= '9')
-		return (change_num(nptr, sign));
+		return (change_num(nptr));
 	return (0);
 }
 
