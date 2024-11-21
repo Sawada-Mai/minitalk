@@ -6,7 +6,7 @@
 /*   By: msawada <msawada@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 20:51:56 by msawada           #+#    #+#             */
-/*   Updated: 2024/11/21 18:08:22 by msawada          ###   ########.fr       */
+/*   Updated: 2024/11/21 18:38:50 by msawada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	send_char(pid_t pid, char c)
 			status = kill(pid, SIGUSR2);
 		if (status == -1)
 		{
-			ft_putstr_fd("Error\n", 2);
+			ft_putstr_fd("Failed to send signal\n", 2);
 			exit(EXIT_FAILURE);
 		}
 		while (g_server_status == STATUS_WAITING)

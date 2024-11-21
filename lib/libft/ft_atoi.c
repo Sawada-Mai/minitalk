@@ -6,7 +6,7 @@
 /*   By: msawada <msawada@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 12:30:50 by msawada           #+#    #+#             */
-/*   Updated: 2024/11/21 18:07:26 by msawada          ###   ########.fr       */
+/*   Updated: 2024/11/21 18:35:32 by msawada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	change_num(const char *nptr)
 	num = 0;
 	while (*nptr)
 	{
-		if (num > 32768)
+		if (num > PID_MAX)
 			return (0);
 		if (!(*nptr >= '0' && *nptr <= '9'))
 			return (0);
@@ -27,7 +27,7 @@ int	change_num(const char *nptr)
 		num += *nptr - '0';
 		nptr++;
 	}
-	if (num > 32768)
+	if (num > PID_MAX)
 		return (0);
 	return (num);
 }

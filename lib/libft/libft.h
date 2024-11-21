@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msawada <msawada@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*   By: msawada <msawada@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 17:43:16 by msawada           #+#    #+#             */
-/*   Updated: 2024/04/17 14:33:20 by msawada          ###   ########.fr       */
+/*   Updated: 2024/11/21 18:35:19 by msawada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,13 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <stdlib.h>
-# include <stddef.h>
-# include <unistd.h>
-# include <stdint.h>
 # include <limits.h>
+# include <stddef.h>
+# include <stdint.h>
+# include <stdlib.h>
+# include <unistd.h>
+
+# define PID_MAX 4194304
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -30,12 +32,12 @@ int		ft_tolower(int c);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 int		ft_atoi(const char *str);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
-void	ft_striteri(char *s, void (*f)(unsigned int, char*));
+void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
-void	ft_striteri(char *s, void (*f)(unsigned int, char*));
+void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 void	ft_bzero(void *s, size_t n);
 void	*ft_memset(void *str, int c, size_t n);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
