@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   client.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msawada <msawada@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sawadamai <sawadamai@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 20:51:56 by msawada           #+#    #+#             */
-/*   Updated: 2024/11/17 22:40:15 by msawada          ###   ########.fr       */
+/*   Updated: 2024/12/05 22:32:15 by sawadamai        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-int		g_server_status = 0;
+int		g_server_status = STATUS_WAITING;
 
 void	handle_signal_complete(int signum)
 {
