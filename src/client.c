@@ -6,13 +6,13 @@
 /*   By: msawada <msawada@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 20:51:56 by msawada           #+#    #+#             */
-/*   Updated: 2024/11/21 18:38:50 by msawada          ###   ########.fr       */
+/*   Updated: 2024/12/08 15:25:54 by msawada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-int		g_server_status = 0;
+int		g_server_status = STATUS_WAITING;
 
 void	handle_signal_complete(int signum)
 {
